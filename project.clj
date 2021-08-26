@@ -7,4 +7,5 @@
                  [org.clojure/core.async "1.3.610"]
                  [org.apache.commons/commons-compress "1.20"]
                  [com.cemerick/url "0.1.1"]]
-  :repl-options {:init-ns wikidata-clj.core})
+  :repl-options {:init-ns wikidata-clj.core}
+  :jvm-opts ["-Xmx7G"])

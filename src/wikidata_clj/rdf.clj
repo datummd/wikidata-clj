@@ -50,7 +50,7 @@
                                    o (->> (concat [(str/trim o)] (butlast rest))
                                           (str/join " "))]
                                (if (and (= (get biomedical-property-type (str/trim p) "") :instance-of) (contains? concept-types (str/trim o)))
-                                 (async/>! out (str (str/trim s) " " (:instance-of KG-biomedical-property-by-type) " " (str/trim o) " " graph " .\r\n")))
+                                 (async/>!! out (str (str/trim s) " " (:instance-of KG-biomedical-property-by-type) " " (str/trim o) " " graph " .\r\n")))
                                (async/close! out*))))]
     (async/thread
       (with-open [wtr (BufferedWriter. (io/writer "resources/wikidata-concepts.nq" :append true))]
