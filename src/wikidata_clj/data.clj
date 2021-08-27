@@ -70,6 +70,16 @@
    :schema-weight (str "<" (:schema-org prefixes) "weight>")
    :short-name "<http://www.lexinfo.net/ontology/2.0/lexinfo#abbreviation>"})
 
+(def external-id-prefix-map
+  {"<http://www.wikidata.org/prop/direct/P2892>" :umls-mth   ;UMLS CUI
+   "<http://www.wikidata.org/prop/direct/P486>" :umls-mesh    ;MeSH ID
+   "<http://www.wikidata.org/prop/direct/P492>" :umls-omim    ;OMIM ID
+   "<http://www.wikidata.org/prop/direct/P715>" :umls-drugbank    ;Drugbank ID
+   "<http://www.wikidata.org/prop/direct/P3098>" :clinicaltrials-gov   ;ClinicalTrials.gov ID
+   "<http://www.wikidata.org/prop/direct/P494>" :umls-icd10    ; ICD10
+   "<http://www.wikidata.org/prop/direct/P4229>" :umls-icd10-cm   ; ICD10-CM
+   })
+
 (defn bzip2-reader
   ""
   [filename]

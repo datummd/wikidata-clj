@@ -1,5 +1,6 @@
 (ns wikidata-clj.rdf
   (:require [wikidata-clj.data :refer :all]
+            [cemerick.url :refer [url]]
             [clojure.java.io :as io]
             [clojure.string :as str]
             [clojure.core.async :as async])
@@ -70,7 +71,7 @@
       (async/pipeline-async (* n-cpu 2) out wikidata-handler in)
 
       (async/thread
-        (with-open [rdr (if (ends-with? filename ".bz2")
+        (with-open [rdr (if (str/ends-with? filename ".bz2")
                           (bzip2-reader filename)
                           (-> (io/resource filename)
                               io/reader))]
@@ -156,8 +157,8 @@
       (async/pipeline-async (* n-cpu 2) out wikidata-handler in)
 
       (async/thread
-        (with-open [rdr (if (ends-with? filename ".bz2")
-                          (bzip2-reader bz2-filename)
+        (with-open [rdr (if (str/ends-with? filename ".bz2")
+                          (bzip2-reader filename)
                           (-> (io/resource filename)
                               io/reader))]
           (doseq [line (line-seq rdr)]
