@@ -68,7 +68,7 @@
    :part-of (str "<" (:schema-org prefixes) "isPartOf>")
    :has-part (str "<" (:schema-org prefixes) "isPartOf>")
    :schema-weight (str "<" (:schema-org prefixes) "weight>")
-   })
+   :short-name "<http://www.lexinfo.net/ontology/2.0/lexinfo#abbreviation>"})
 
 (defn bzip2-reader
   ""
